@@ -4,55 +4,75 @@ import MenuBar from "../../components/MenuBar/MenuBar";
 import CardGame from "../../components/CardGame/Cardgame";
 import Loading from "../../components/Loading/Loading";
 import Message from "../../components/Message/Message";
-import './LandingPage.css'
-
-
+import './LandingPage.css';
 
 const LandingPage = () => {
-
-    const [data, setData] = useState<any>(null);
+    const [data, setData] = useState([]);
     const [requestError, setRequestError] = useState<boolean>(false);
     const [responseMessage, setResponseMessage] = useState<string>('');
+
+    const [filteredGames, setFilteredGames] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedGenre, setSelectedGenre] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://games-test-api-81e9fb0d564a.herokuapp.com/api/data/', {
-                    headers: {
-                        'dev-email-address': 'du-eduardo10@hotmail.com',
-                    },
-                    timeout: 5000,
-                });
+                const response = await axios.get(
+                    'https://games-test-api-81e9fb0d564a.herokuapp.com/api/data/',
+                    {
+                        headers: {
+                            'dev-email-address': 'du-eduardo10@hotmail.com',
+                        },
+                        timeout: 5000,
+                    }
+                );
                 setData(response.data);
-            }
-            catch (error) {
-
+            } catch (error) {
                 if (error instanceof AxiosError) {
-                    const errors = [500, 502, 503, 504, 507, 508, 509]
+                    const errors = [500, 502, 503, 504, 507, 508, 509];
                     if (error.code === 'ECONNABORTED') {
-                        setRequestError(true)
-                        setResponseMessage('O servidor demorou para responder, tente mais tarde')
+                        setRequestError(true);
+                        setResponseMessage('O servidor demorou para responder, tente mais tarde');
                     }
-                    if (!error.response?.status) return
+                    if (!error.response?.status) return;
                     if (errors.includes(error.response.status)) {
-                        setRequestError(true)
-                        setResponseMessage('O servidor fahou em responder, tente recarregar a página')
-                        console.log("error axios:", error)
+                        setRequestError(true);
+                        setResponseMessage('O servidor falhou em responder, tente recarregar a página');
+                        console.log("error axios:", error);
                     }
-                    if(error.response.status != 200 && !errors.includes(error.response.status)){
-                        setRequestError(true)
-                        setResponseMessage('O servidor não conseguirá responder por agora, tente voltar novamente mais tarde')
+                    if (error.response.status !== 200 && !errors.includes(error.response.status)) {
+                        setRequestError(true);
+                        setResponseMessage('O servidor não conseguirá responder por agora, tente voltar novamente mais tarde');
                     }
-                    return
+                    return;
                 }
             }
-        }
-        fetchData();
-    }, [])
-    return (
+        };
 
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        const filtered = data.filter((game: any) => {
+            const titleMatches = game.title.includes(searchQuery);
+            const genreMatche = selectedGenre ? game.genre.toLowerCase() === selectedGenre.toLowerCase() : true;
+            return titleMatches && genreMatche;
+        });
+        setFilteredGames(filtered);
+    }, [searchQuery, data, selectedGenre]);
+
+    const handleSearch = (query: string) => {
+        setSearchQuery(query);
+    };
+
+    const handleGenreChange = (genre: string) => {
+        setSelectedGenre(genre);
+      };
+
+    return (
         <div>
-            <MenuBar/>
+            <MenuBar onGenreChange={handleGenreChange}  onSearch={handleSearch} />
             <div className="background-div">
                 <div className="overlay-text">
                     <p className="text-background">Desvende um universo de diversão!</p>
@@ -60,17 +80,25 @@ const LandingPage = () => {
             </div>
             {!requestError ? (
                 <div className="body-list">
-                    {data ? (
+                    {filteredGames.length > 0 || filteredGames.length == 0 && searchQuery!='' ? (
                         <div className="list">
-                            {data.map((data: any) => (
-                                <CardGame key={data.id} backgroundImage={`url(${data.thumbnail})`} text={data.title} />
+                            {filteredGames.map((game: any) => (
+                                <CardGame
+                                    key={game.id}
+                                    backgroundImage={`url(${game.thumbnail})`}
+                                    text={game.title}
+                                />
                             ))}
                         </div>
-                    ) : (<Loading />)
-                    }
+                    ) : (
+                        <Loading />
+                    )}
                 </div>
-            ) : (<Message text={responseMessage}/>)}
+            ) : (
+                <Message text={responseMessage} />
+            )}
         </div>
-    )
-}
+    );
+};
+
 export default LandingPage;

@@ -7,7 +7,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-height: 120px;
+    height: 120px;
     margin:0
 }
 .icon-logo{
@@ -54,4 +54,76 @@ height: 120px;
 
 .search-input:focus{
     outline: none;
+}
+
+.dropdown-menu{
+    background-color: #262626;
+    width: 324px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+    position: absolute;
+
+}
+
+.dropdown-option{
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+.dropdown-option:hover{
+    color: aqua;
+}
+
+.select-button{
+    position: fixed !important;
+    margin-top: 20%;
+    margin-left: 50%;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1279px){
+    .search-input{
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px){
+    .search-input{
+        width: 200px;
+        height: 24px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 12px;
+        padding-left: 15px;
+        border-radius: 12px;
+    }
+    .search{
+        margin-right: 0;
+    }
+    .container-menu{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .icon-filter{
+        padding: 10px;
+        background-color:#262626 ;
+        width: 12px;
+        border-radius: 28px 28px 28px 28px;
+        cursor: pointer;
+    }
+    .logo{
+        margin-left: 0;
+        width: 4%;
+        margin-bottom: 15px;
+    }
+    .title{
+        font-size: 24px;
+    }
 }
