@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.container-message{
+.container-message {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7) ;
+    background: rgba(0, 0, 0, 0.7);
     position: absolute;
 }
-.text-error{
+
+.text-error {
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     display: flex;
@@ -25,7 +26,7 @@
 }
 
 @media (max-width: 768px) {
-    .text-error{
+    .text-error {
         width: 200px;
     }
 }

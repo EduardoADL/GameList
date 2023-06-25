@@ -6,19 +6,27 @@ import Loading from "../../components/Loading/Loading";
 import Message from "../../components/Message/Message";
 import './LandingPage.css';
 
+interface GameData {
+    id: string;
+    title: string;
+    thumbnail: string;
+    genre: string;
+    game_url: string;
+}
+
 const LandingPage = () => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<GameData[]>([]);
     const [requestError, setRequestError] = useState<boolean>(false);
     const [responseMessage, setResponseMessage] = useState<string>('');
 
-    const [filteredGames, setFilteredGames] = useState([]);
+    const [filteredGames, setFilteredGames] = useState<GameData[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedGenre, setSelectedGenre] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(
+                const response = await axios.get<GameData[]>(
                     'https://games-test-api-81e9fb0d564a.herokuapp.com/api/data/',
                     {
                         headers: {
@@ -39,7 +47,6 @@ const LandingPage = () => {
                     if (errors.includes(error.response.status)) {
                         setRequestError(true);
                         setResponseMessage('O servidor falhou em responder, tente recarregar a página');
-                        console.log("error axios:", error);
                     }
                     if (error.response.status !== 200 && !errors.includes(error.response.status)) {
                         setRequestError(true);
@@ -54,7 +61,7 @@ const LandingPage = () => {
     }, []);
 
     useEffect(() => {
-        const filtered = data.filter((game: any) => {
+        const filtered = data.filter((game) => {
             const titleMatches = game.title.includes(searchQuery);
             const genreMatche = selectedGenre ? game.genre.toLowerCase() === selectedGenre.toLowerCase() : true;
             return titleMatches && genreMatche;
@@ -71,7 +78,7 @@ const LandingPage = () => {
       };
 
     return (
-        <div>
+        <>
             <MenuBar onGenreChange={handleGenreChange}  onSearch={handleSearch} />
             <div className="background-div">
                 <div className="overlay-text">
@@ -82,9 +89,10 @@ const LandingPage = () => {
                 <div className="body-list">
                     {filteredGames.length > 0 || filteredGames.length == 0 && searchQuery!='' ? (
                         <div className="list">
-                            {filteredGames.map((game: any) => (
+                            {filteredGames.map((game) => (
                                 <CardGame
                                     key={game.id}
+                                    link={game.game_url}
                                     backgroundImage={`url(${game.thumbnail})`}
                                     text={game.title}
                                 />
@@ -97,7 +105,7 @@ const LandingPage = () => {
             ) : (
                 <Message text={responseMessage} />
             )}
-        </div>
+        </>
     );
 };
 

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import './Loading.css'
 const Loading: FC = () => {
-    return(
+    return (
         <div className='loading-animation'>
             <div className="loading-spinner"></div>
         </div>

@@ -1,46 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.container-menu{
-    background-color:#0F0F0F;
+.container-menu {
+    background-color: #0F0F0F;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 120px;
-    margin:0
+    margin: 0
 }
-.icon-logo{
+
+.icon-logo {
     width: 52px;
     padding-right: 18px;
 }
-.logo{
+
+.logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 8%;
+    margin-left: 6%;
 }
-.title{
+
+.title {
     color: #FFFFFF;
     font-size: 32px;
     font-family: 'Roboto', sans-serif;
 }
-.search{
+
+.search {
     display: flex;
     flex-direction: row;
     align-items: center;
     background-color: #323232;
     border-radius: 28px;
-    margin-right: 8%;
+    margin-right: 6%;
 }
-.icon-filter{
+
+.icon-filter {
     padding: 16px;
-    background-color:#262626 ;
+    background-color: #262626;
     width: 24px;
     border-radius: 28px 28px 28px 28px;
     cursor: pointer;
 }
-.search-input{
+
+.search-input {
     width: 560px;
     height: 56px;
     font-family: 'Roboto', sans-serif;
@@ -52,50 +58,91 @@
     border: none;
 }
 
-.search-input:focus{
+.search-input:focus {
     outline: none;
 }
 
-.dropdown-menu{
-    background-color: #262626;
-    width: 324px;
+.dropdown-menu {
+    background-color: #323232;
+    width: 626px;
+    height: 303px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    border-radius: 8px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 32px;
+    border-radius: 32px;
     position: absolute;
 
 }
 
-.dropdown-option{
-    color: #FFFFFF;
+.title-filter {
     font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    margin-right: 140px;
+    margin-bottom: 20px;
+}
+
+.filter-close {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+}
+
+.img-close {
+    width: 30px;
     cursor: pointer;
 }
 
-.dropdown-option:hover{
+.position-options {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.dropdown-option {
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin: 4px;
+    display: flex;
+    border-radius: 20px;
+    background-color: #262626;
+    border: 2px solid #262626;
+
+}
+
+.dropdown-option:hover {
     color: aqua;
 }
 
-.select-button{
+.select-button {
     position: fixed !important;
     margin-top: 20%;
-    margin-left: 50%;    
+    margin-left: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-@media (max-width: 1279px){
-    .search-input{
+@media (max-width: 1279px) {
+    .search-input {
         width: 300px;
     }
 }
 
-@media (max-width: 768px){
-    .search-input{
+@media (max-width: 768px) {
+    .search-input {
         width: 200px;
         height: 24px;
         font-family: 'Roboto', sans-serif;
@@ -103,27 +150,56 @@
         padding-left: 15px;
         border-radius: 12px;
     }
-    .search{
+
+    .search {
         margin-right: 0;
     }
-    .container-menu{
+
+    .container-menu {
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    .icon-filter{
+
+    .icon-filter {
         padding: 10px;
-        background-color:#262626 ;
+        background-color: #262626;
         width: 12px;
         border-radius: 28px 28px 28px 28px;
         cursor: pointer;
     }
-    .logo{
+
+    .logo {
         margin-left: 0;
         width: 4%;
         margin-bottom: 15px;
     }
-    .title{
+
+    .title {
         font-size: 24px;
+    }
+
+    .dropdown-menu {
+        background-color: #323232;
+        width: 314px;
+        height: 500px;
+
+    }
+
+    .position-options {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width:414px) {
+    .dropdown-menu {
+        margin-top: 190px;
+        background-color: #323232;
+        width: 280px;
+        height: 500px;
+
     }
 }

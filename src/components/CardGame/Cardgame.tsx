@@ -4,16 +4,19 @@ import "./CardGame.css"
 interface Params {
     backgroundImage: string;
     text: string;
+    link: string;
 }
 
-const CardGame: FC<Params> = ({ backgroundImage, text }) => {
+const CardGame: FC<Params> = ({ backgroundImage, text, link }) => {
 
     return (
-        <div className="body-card" style={{ backgroundImage }} >
-            <div className="position-text">
-                <p className="text-card">{text}</p>
+        <a style={{ textDecoration: "none" }} href={link} target="_blank">
+            <div className="body-card" style={{ backgroundImage }} >
+                <div className="position-text">
+                    <p className="text-card">{text}</p>
+                </div>
             </div>
-        </div>
+        </a>
     )
 }
 export default CardGame
