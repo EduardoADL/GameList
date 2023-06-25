@@ -16,8 +16,7 @@ Acesse a pasta do projeto e abra o projeto.
 
 Instale as dependências utilizando: yarn
 
-Inicie o servidor de desenvolvimento:
-utilizando yarn dev
+Inicie o servidor de desenvolvimento utilizando: yarn dev
 
 Abra o seu navegador e acesse http://localhost:5173.
 
@@ -29,14 +28,24 @@ imagens da aplicação:
 ![Screenshot_2](https://github.com/EduardoADL/GameList/assets/69330807/01ce53e5-9be4-455d-8798-18d3e3aa6797)
 
 
-Funcionalidades
+
+Funcionalidades:
+
 Listagem de jogos na landing page.
+
 Filtragem de jogos por gênero.
+
 Filtragem de jogos por nome com case sensitive.
+
 Tratamento de erros de requisição utilizando a biblioteca Axios.
 
-Tecnologias utilizadas?
+
+Tecnologias utilizadas:
+
 Vite
+
 React
+
 TypeScript
+
 Axios
