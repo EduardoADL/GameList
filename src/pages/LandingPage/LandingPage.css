@@ -1,37 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Erica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-body{
+body {
     margin: 0;
     padding: 0;
-    background-color:#262626;
+    background-color: #262626;
 }
 
-.background-div{
+.background-div {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height: 269px;
-    background-image: url("../../assets/img/background.webp");
+    background-image: linear-gradient(to bottom, rgba(15, 15, 15, 1) 0%, rgba(15, 15, 15, 0) 50%),
+        linear-gradient(to top, rgba(38, 38, 38, 1) 0%, transparent 20%) , url("../../assets/img/background.webp");
 }
 
-.overlay-text{
+.overlay-text {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 80px;
+    padding-top: 60px;
 }
 
-.text-background{
-    font-family: 'Erica One', cursive;
-    font-size: 36px;
+.text-background {
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
     color: #ffffff;
 }
 
-.list{
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-gap: 42px;
-    justify-items: center;
-    margin-top:100px ;
+.body-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    place-items: center;
+    justify-content: center;
+    grid-gap: 60px;
+    margin-top: 32px;
+    width: 100%;
+}

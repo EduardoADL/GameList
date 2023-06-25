@@ -1,18 +1,17 @@
-import React from 'react';
 import joystickImg from '../../assets/img/joystick_icon.png'
 import filterImg from '../../assets/img/filtro.png'
 import "./MenuBar.css"
 
 const MenuBar = () => {
 
-    const handleClick = (event: React.MouseEvent<HTMLImageElement>) => {
+    const handleClick = () => {
         console.log('A imagem foi clicada!');
       };
 
     return (
         <div className="container-menu">
             <div className='logo'>
-                <img src={joystickImg} />
+                <img className='icon-logo' src={joystickImg} />
                 <a className="title">GAMELIST</a>
             </div>
             <div className='search'>
