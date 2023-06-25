@@ -41,11 +41,4 @@ Tratamento de erros de requisição utilizando a biblioteca Axios.
 
 
 Tecnologias utilizadas:
-
-Vite
-
-React
-
-TypeScript
-
-Axios
+Vite, React, TypeScript, Axios.
