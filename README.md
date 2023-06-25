@@ -14,11 +14,11 @@ git clone https://github.com/seu-usuario/game-list.git
 
 Acesse a pasta do projeto e abra o projeto.
 
-Instale as dependências utilizando o Yarn:
-utilizando yarn
+Instale as dependências utilizando: yarn
 
 Inicie o servidor de desenvolvimento:
 utilizando yarn dev
+
 Abra o seu navegador e acesse http://localhost:5173.
 
 imagens da aplicação:
