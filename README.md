@@ -22,9 +22,12 @@ utilizando yarn dev
 Abra o seu navegador e acesse http://localhost:5173.
 
 imagens da aplicação:
-![image](https://github.com/EduardoADL/GameList/assets/69330807/eeef8d18-ff98-4064-9755-22ca783b6a60)
 
-![image](https://github.com/EduardoADL/GameList/assets/69330807/0ed97ba5-bf8f-4438-9239-119820329932)
+![Screenshot_1](https://github.com/EduardoADL/GameList/assets/69330807/4bd9299e-ca86-4f46-a05d-f4c765adc557)
+
+
+![Screenshot_2](https://github.com/EduardoADL/GameList/assets/69330807/01ce53e5-9be4-455d-8798-18d3e3aa6797)
+
 
 Funcionalidades
 Listagem de jogos na landing page.
