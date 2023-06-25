@@ -72,7 +72,7 @@ const MenuBar: FC<MenuBarProps> = ({ onSearch, onGenreChange }) => {
                 {isDropdownOpen && (
                     <div className="dropdown-menu">
                         <div className="filter-close">
-                            <p className='title-filter'>Filtar por genero</p>
+                            <p className='title-filter'>Filtar por gênero</p>
                             <img className='img-close' src={closeIcon} onClick={handleClose} alt="close-button" />
                         </div>
                         <div className='position-options'>
