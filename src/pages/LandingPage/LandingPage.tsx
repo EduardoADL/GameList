@@ -3,7 +3,9 @@ import axios, { AxiosError } from "axios";
 import MenuBar from "../../components/MenuBar/MenuBar";
 import CardGame from "../../components/CardGame/Cardgame";
 import Loading from "../../components/Loading/Loading";
+import Message from "../../components/Message/Message";
 import './LandingPage.css'
+
 
 
 const LandingPage = () => {
@@ -37,22 +39,20 @@ const LandingPage = () => {
                         setResponseMessage('O servidor fahou em responder, tente recarregar a página')
                         console.log("error axios:", error)
                     }
+                    if(error.response.status != 200 && !errors.includes(error.response.status)){
+                        setRequestError(true)
+                        setResponseMessage('O servidor não conseguirá responder por agora, tente voltar novamente mais tarde')
+                    }
                     return
-                }
-                if (error instanceof Error) {
-                    console.log("error fora do axios:", error);
                 }
             }
         }
         fetchData();
     }, [])
-
-
-
     return (
 
         <div>
-            <MenuBar />
+            <MenuBar/>
             <div className="background-div">
                 <div className="overlay-text">
                     <p className="text-background">Desvende um universo de diversão!</p>
@@ -69,7 +69,7 @@ const LandingPage = () => {
                     ) : (<Loading />)
                     }
                 </div>
-            ) : (<p>{responseMessage}</p>)}
+            ) : (<Message text={responseMessage}/>)}
         </div>
     )
 }

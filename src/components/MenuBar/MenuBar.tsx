@@ -1,9 +1,9 @@
+import { FC} from 'react';
 import joystickImg from '../../assets/img/joystick_icon.png'
 import filterImg from '../../assets/img/filtro.png'
 import "./MenuBar.css"
 
-const MenuBar = () => {
-
+const MenuBar: FC = () => {
     const handleClick = () => {
         console.log('A imagem foi clicada!');
       };

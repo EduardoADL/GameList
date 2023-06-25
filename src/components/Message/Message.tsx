@@ -1,6 +1,14 @@
-const Message = () => {
+import { FC } from 'react'
+import './Message.css'
+interface ReceivedError {
+    text : string
+}
+
+const Message: FC<ReceivedError> = ({text}) => {
     return(
-        <div></div>
+        <div className="container-message">
+            <p className="text-error">{text}</p>
+        </div>
     )
 }
 export default Message;
