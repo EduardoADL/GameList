@@ -71,7 +71,7 @@ const MenuBar: FC<MenuBarProps> = ({ onSearch, onGenreChange }) => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 storeHelper.setIsLogged(true);
-                const userData = getUserData();
+                getUserData();
             } else {
                 // Usuário não autenticado
                 storeHelper.setIsLogged(false);
