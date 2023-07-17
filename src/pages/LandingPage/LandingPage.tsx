@@ -75,11 +75,11 @@ const LandingPage = () => {
 
     const handleGenreChange = (genre: string) => {
         setSelectedGenre(genre);
-      };
+    };
 
     return (
         <>
-            <MenuBar onGenreChange={handleGenreChange}  onSearch={handleSearch} />
+            <MenuBar onGenreChange={handleGenreChange} onSearch={handleSearch} />
             <div className="background-div">
                 <div className="overlay-text">
                     <p className="text-background">Desvende um universo de diversão!</p>
@@ -87,14 +87,16 @@ const LandingPage = () => {
             </div>
             {!requestError ? (
                 <div className="body-list">
-                    {filteredGames.length > 0 || filteredGames.length == 0 && searchQuery!='' ? (
+                    {filteredGames.length > 0 || filteredGames.length == 0 && searchQuery != '' ? (
                         <div className="list">
                             {filteredGames.map((game) => (
                                 <CardGame
                                     key={game.id}
                                     link={game.game_url}
-                                    backgroundImage={`url(${game.thumbnail})`}
+                                    backgroundImage={game.thumbnail}
                                     text={game.title}
+                                    id={game.id}
+                                    genre={game.genre}
                                 />
                             ))}
                         </div>

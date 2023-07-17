@@ -1,45 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-/* Estilizando o scrollbar vertical */
-::-webkit-scrollbar {
-    width: 10px;
-    /* Largura do scrollbar */
-    border-radius: 5px;
-    /* Raio de curvatura das bordas */
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-    /* Cor do fundo do scrollbar */
-    border-radius: 5px;
-    /* Raio de curvatura das bordas */
-}
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-    /* Cor do preenchimento do scrollbar */
-    border-radius: 5px;
-    /* Raio de curvatura das bordas */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-    /* Cor do preenchimento do scrollbar ao passar o mouse */
-}
-
-
-::-webkit-scrollbar-thumb-piece:end {
-    background: transparent;
-    /* Cor do fundo do scrollbar na parte direita ou inferior */
-    border-radius: 5px;
-    /* Raio de curvatura das bordas */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-    /* Cor do preenchimento do scrollbar ao passar o mouse */
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -72,7 +32,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2%;
 }
 
 .list {

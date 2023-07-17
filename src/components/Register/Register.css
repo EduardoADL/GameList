@@ -1,0 +1,9 @@
+.info {
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 22px;
+    width: 40%;
+    margin: 5%;
+}
